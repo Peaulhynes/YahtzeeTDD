@@ -21,11 +21,13 @@ exports.Count = function Count(des) {
     }
 
     for (var i = 0; i < count.length; i++) {
-        if (count[i] == 3){
+        switch(count[i]){
+        case 3:
             result[TestEnum.ThreeOfAKind] = total;
-        }
-        if (count[i] == 4){
+            break;
+        case 4:
             result[TestEnum.FourOfAKind] = total;
+            break;
         }
     }
     return result;
