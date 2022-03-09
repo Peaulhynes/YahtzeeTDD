@@ -6,14 +6,16 @@ const TestEnum = Object.freeze({
     Fives:4,
     Sixes:5,
     ThreeOfAKind:6,
-    FourOfAKind:7
+    FourOfAKind:7,
+    FullHouse:8
 });
 
 exports.Count = function Count(des) {
 
     var total = 0;
     var count = [0, 0, 0, 0, 0, 0];
-    var result = [0, 0, 0, 0, 0, 0, 0, 0];
+    var result = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var pair = false;
 
     for (var i = 0; i < des.length; i++) {
         result[des[i] - 1] += des[i];
@@ -23,6 +25,9 @@ exports.Count = function Count(des) {
 
     for (var i = 0; i < count.length; i++) {
         switch(count[i]){
+        case 2:
+            pair = true;
+            break;
         case 3:
             result[TestEnum.ThreeOfAKind] = total;
             break;
@@ -31,5 +36,10 @@ exports.Count = function Count(des) {
             break;
         }
     }
+
+    if (result[TestEnum.ThreeOfAKind] != 0 && pair == true){
+        result[TestEnum.FullHouse] = 25;
+    }
+
     return result;
 }
