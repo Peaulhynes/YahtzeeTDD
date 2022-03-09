@@ -5,7 +5,8 @@ const TestEnum = Object.freeze({
     Fours:3,
     Fives:4,
     Sixes:5,
-    ThreeOfAKind:6
+    ThreeOfAKind:6,
+    FourOfAKind:7
 });
 
 exports.Count = function Count(des) {
@@ -22,6 +23,9 @@ exports.Count = function Count(des) {
     for (var i = 0; i < count.length; i++) {
         if (count[i] == 3){
             result[TestEnum.ThreeOfAKind] = total;
+        }
+        if (count[i] == 4){
+            result[TestEnum.FourOfAKind] = total;
         }
     }
     return result;
