@@ -9,10 +9,9 @@ const TestEnum = Object.freeze({
     Sixes:5,
     ThreeOfAKind:6,
     FourOfAKind:7,
-    FullHouse:8
+    FullHouse:8,
+    SmallStraight:9
 });
-
-
 
 test('Les des 1 1 1 1 1 doivent retourner 5 pour Ones', () => {
     var des = [1, 1, 1, 1, 1];
@@ -53,3 +52,14 @@ test('Les des 1 1 1 2 2 doivent retourner 25 pour FullHouse.', () => {
     var des = [1, 1, 1, 2, 2];
     expect(mod.Count(des)[TestEnum.FullHouse]).toBe(25);
 });
+
+test('Les des 1 1 2 2 4 doivent retourner 0 pour FullHouse.', () => {
+    var des = [1, 1, 2, 2, 4];
+    expect(mod.Count(des)[TestEnum.FullHouse]).toBe(0);
+});
+
+test('Les des 1 2 3 4 4 doivent retourner 30 pour SmallStraight.', () => {
+    var des = [1, 2, 3, 4, 4];
+    expect(mod.Count(des)[TestEnum.SmallStraight]).toBe(30);
+});
+
