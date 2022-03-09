@@ -10,7 +10,8 @@ const TestEnum = Object.freeze({
     FullHouse:8,
     SmallStraight:9,
     LargeStraight:10,
-    Chance:11
+    Chance:11,
+    Yahtzee:12
 });
 
 exports.Count = function Count(des) {
@@ -50,6 +51,8 @@ exports.Count = function Count(des) {
         case 4:
             result[TestEnum.FourOfAKind] = total;
             break;
+        case 5:
+            result[TestEnum.Yahtzee] = 50;
         }
     }
 
