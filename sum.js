@@ -9,7 +9,8 @@ const TestEnum = Object.freeze({
     FourOfAKind:7,
     FullHouse:8,
     SmallStraight:9,
-    LargeStraight:10
+    LargeStraight:10,
+    Chance:11
 });
 
 exports.Count = function Count(des) {
@@ -60,6 +61,8 @@ exports.Count = function Count(des) {
         result[TestEnum.SmallStraight] = 30;
     if (largestraight)
         result[TestEnum.LargeStraight] = 40;
+    
+    result[TestEnum.Chance] = total;
     
     return result;
 }
