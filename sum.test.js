@@ -12,7 +12,8 @@ const TestEnum = Object.freeze({
     FullHouse:8,
     SmallStraight:9,
     LargeStraight:10,
-    Chance:11
+    Chance:11,
+    Yahtzee:12
 });
 
 test('Les des 1 1 1 1 1 doivent retourner 5 pour Ones', () => {
@@ -73,4 +74,9 @@ test('Les des 1 2 3 4 5 doivent retourner 40 pour LargeStraight.', () => {
 test('Les des 1 2 3 4 5 doivent retourner 15 pour Chance.', () => {
     var des = [1, 2, 3, 4, 5];
     expect(mod.Count(des)[TestEnum.Chance]).toBe(15);
+});
+
+test('Les des 1 1 1 1 1 doivent retourner 50 pour Yahtzee.', () => {
+    var des = [1, 1, 1, 1, 1];
+    expect(mod.Count(des)[TestEnum.Yahtzee]).toBe(50);
 });
