@@ -8,7 +8,8 @@ const TestEnum = Object.freeze({
     Fives:4,
     Sixes:5,
     ThreeOfAKind:6,
-    FourOfAKind:7
+    FourOfAKind:7,
+    FullHouse:8
 });
 
 
@@ -33,7 +34,22 @@ test('Les des 1 1 1 2 3 doivent retourner 8 pour ThreeOfAKind.', () => {
     expect(mod.Count(des)[TestEnum.ThreeOfAKind]).toBe(8);
 });
 
+test('Les des 1 1 2 2 3 doivent retourner 0 pour ThreeOfAKind.', () => {
+    var des = [1, 1, 2, 2, 3];
+    expect(mod.Count(des)[TestEnum.ThreeOfAKind]).toBe(0);
+});
+
 test('Les des 1 1 1 1 2 doivent retourner 6 pour FourOfAKind.', () => {
     var des = [1, 1, 1, 1, 2];
     expect(mod.Count(des)[TestEnum.FourOfAKind]).toBe(6);
+});
+
+test('Les des 1 1 1 2 2 doivent retourner 0 pour FourOfAKind.', () => {
+    var des = [1, 1, 1, 2, 2];
+    expect(mod.Count(des)[TestEnum.FourOfAKind]).toBe(0);
+});
+
+test('Les des 1 1 1 2 2 doivent retourner 25 pour FullHouse.', () => {
+    var des = [1, 1, 1, 2, 2];
+    expect(mod.Count(des)[TestEnum.FullHouse]).toBe(25);
 });
